@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/app/App';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter} from "react-router-dom";
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import "moment/locale/ru";
+import MomentUtils from '@date-io/moment';
 
+const app = (
+    <MuiPickersUtilsProvider utils={MomentUtils} locale='ru'>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
+    </MuiPickersUtilsProvider>
+)
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      {app}
   </React.StrictMode>,
   document.getElementById('root')
 );
